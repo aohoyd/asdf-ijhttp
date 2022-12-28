@@ -16,23 +16,20 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
-- `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
+- `bash`, `curl`, `unzip`: generic POSIX utilities.
+- `openjdk@17` is required by the tool
 
 # Install
 
 Plugin:
 
 ```shell
-asdf plugin add ijhttp
-# or
 asdf plugin add ijhttp https://github.com/avlllo/asdf-ijhttp.git
 ```
 
 ijhttp:
 
+**Currently only `latest` version is supported**
 ```shell
 # Show all installable versions
 asdf list-all ijhttp

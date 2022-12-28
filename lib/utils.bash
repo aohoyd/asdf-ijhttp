@@ -33,7 +33,7 @@ list_github_tags() {
 list_all_versions() {
   # TODO: Adapt this. By default we simply list the tag names from GitHub releases.
   # Change this function if ijhttp has other means of determining installable versions.
-  list_github_tags
+  echo latest
 }
 
 download_release() {
@@ -42,7 +42,7 @@ download_release() {
   filename="$2"
 
   # TODO: Adapt the release URL convention for ijhttp
-  url="$GH_REPO/archive/v${version}.tar.gz"
+  url="$GH_REPO/latest"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -59,7 +59,7 @@ install_version() {
 
   (
     mkdir -p "$install_path"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
+    cp -r "$ASDF_DOWNLOAD_PATH/$TOOL_NAME"/* "$install_path"
 
     # TODO: Assert ijhttp executable exists.
     local tool_cmd
